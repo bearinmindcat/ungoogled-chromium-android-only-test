@@ -83,6 +83,7 @@ else
 fi
 
 WV_IN=$(find "$OUT/apks" -maxdepth 1 -name "SystemWebView64.apk" | head -1)
+[ -n "$WV_IN" ] || WV_IN=$(find "$OUT/apks" -maxdepth 1 -name "SystemWebView.apk" | head -1)
 if [ -n "$WV_IN" ]; then
     if [ -n "$KS" ] && [ -f "$KS" ] && [ -n "$KS_PASSFILE" ] && [ -f "$KS_PASSFILE" ]; then
         "$APKSIGNER" sign --ks "$KS" --ks-key-alias "$KS_ALIAS" \
